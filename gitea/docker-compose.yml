@@ -1,0 +1,31 @@
+version: "3"
+
+volumes:
+  gitea-data:
+    external: true
+networks:
+  default:
+    name: services
+    external: true
+
+services:
+  server:
+    image: gitea/gitea:latest
+    container_name: gitea
+    environment:
+      - USER_UID=1002
+      - USER_GID=1002
+      - GITEA__database__DB_TYPE=postgres
+      - GITEA__database__HOST=host.docker.internal:5432
+      - GITEA__database__NAME=gitea
+      - GITEA__database__USER=gitea
+      - GITEA__database__PASSWD=gitea
+    restart: unless-stopped
+    volumes:
+      - gitea-data:/data
+      - /etc/timezone:/etc/timezone:ro
+      - /etc/localtime:/etc/localtime:ro
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "127.0.0.1:2222:22"
