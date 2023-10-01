@@ -1,0 +1,4 @@
+[Postgresql]
+Title=Postgresql
+Description=Allow access to Postgresql
+ports=5432/tcp
