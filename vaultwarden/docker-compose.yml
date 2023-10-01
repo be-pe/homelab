@@ -1,0 +1,19 @@
+version: '3'
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    user: 10000:10001
+    restart: unless-stopped
+    environment:
+      DOMAIN: "https://vault.rosalina.moe"
+    volumes:
+      - vw-data:/data
+volumes:
+  vw-data:
+    external: true
+networks:
+  default:
+    external: true
+    name: services
