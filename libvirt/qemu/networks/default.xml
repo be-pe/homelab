@@ -1,0 +1,15 @@
+<network>
+  <name>default</name>
+  <uuid>a94c15a0-9a25-4cf1-a05d-3dd57c457127</uuid>
+  <forward mode='nat'/>
+  <bridge name='virbr0' stp='on' delay='0'/>
+  <mac address='52:54:00:9e:e0:35'/>
+  <ip address='192.168.122.1' netmask='255.255.255.0'>
+    <dhcp>
+      <range start='192.168.122.2' end='192.168.122.254'/>
+      <host mac='52:54:00:5a:d1:05' name='vm1' ip='192.168.122.10'/> <!-- Static ip for Space Engineers VM -->
+    </dhcp>
+  </ip>
+  <ip family='ipv6' address='2001:db8:dead:beef:fe::2' prefix='96'>
+  </ip>
+</network>
