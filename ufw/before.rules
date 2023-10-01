@@ -1,0 +1,5 @@
+# Append at the end of the original file. Used to redirect port to kvm machine
+*nat
+:PREROUTING ACCEPT [0:0]
+-A PREROUTING -p udp -d 188.165.205.153 --dport 27016 -j DNAT --to-destination 192.168.122.10:27016
+COMMIT
