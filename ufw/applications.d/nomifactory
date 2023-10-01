@@ -1,0 +1,4 @@
+[Nomifactory]
+title = “Nomifactory Minecraft Server”
+description = “Java server”
+ports = 25565/tcp
