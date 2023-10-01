@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  npm:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '443:443'
+    volumes:
+      - npm-data:/data
+      - npm-letsencrypt:/etc/letsencrypt
+      - /var/log/nginx-proxy-manager:/data/logs
+volumes:
+  npm-data:
+    external: true
+  npm-letsencrypt:
+    external: true
+networks:
+  default:
+    external: true
+    name: services
